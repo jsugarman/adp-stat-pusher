@@ -1,0 +1,33 @@
+%form{:action => "/push", :method => "post"}
+
+  %h2 Transaction by channel (per week)
+
+  %p Paper
+  %label
+    Count
+    %input#post_paper_count{:name => "paper_count", :type => "number"}/
+
+  %p Digital
+  %label
+    Count
+    %input#post_digital_count{:name => "digital_count", :type => "number"}/
+
+  %p Telephone
+  %label
+    Count
+    %input#post_digital_count{:name => "telephone_count", :type => "number"}/
+
+  %h2 Completion rate (per day)
+
+  %p Completed
+  %label
+    count
+    %input#post_completed_count{:name => "completed_count", :type => "number"}/
+
+  %p Started
+  %label
+    count
+    %input#post_started_count{:name => "started_count", :type => "number"}/
+
+  %p
+    %input{:type => "submit", :value => "Send"}/

@@ -1,0 +1,29 @@
+!!!
+%html
+  %head
+    %title ADP Statistics Pusher
+    <!-- %link(rel="stylesheet" href="http://yui.yahooapis.com/2.8.0r4/build/reset/reset-min.css") -->
+    %link(rel="stylesheet" href="stylesheets/app.css")
+  %body
+    #wrapper
+      #header
+        %h1 ADP Statistics Pusher
+        %h2 Performance stats pushing to goverment performance platform.
+      #nav
+        %ol
+          %a(href="/")
+            %li Home
+          %a(href="about")
+            %li About
+
+      #content
+        =yield
+
+      #side_bar
+        %h1 Side Bar
+        %p
+          This is the side bar of the webpage
+
+      #footer
+        %p
+          This is the footer.

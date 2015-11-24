@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 ruby '2.2.3'
 
 gem 'sinatra', require: 'sinatra/base'
+gem 'haml', '~> 4.0', '>= 4.0.7'
+gem 'rest-client', '~> 1.8'
+
 
 group :development, :test do
   gem 'awesome_print'
