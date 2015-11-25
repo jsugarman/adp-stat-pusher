@@ -100,7 +100,6 @@ private
     endpoint = RestClient::Resource.new(url, :verify_ssl => false )
     endpoint.post(payload, headers) do |response, request, result|
       @responses << response
-      ap response
     end
 
   rescue RestClient::ExceptionWithResponse => err
