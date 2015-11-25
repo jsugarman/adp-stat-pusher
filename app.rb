@@ -7,8 +7,8 @@ require 'json'
 require_relative './performance_dataset.rb'
 require_relative './helpers.rb'
 
-require 'byebug'
-require "awesome_print"
+# require 'byebug'
+# require "awesome_print"
 
 use Rack::Auth::Basic, 'Restricted Area' do |username, password|
   username == ENV['ADP_STAT_PUSHER_USERNAME'] and password == ENV['ADP_STAT_PUSHER_PASSWORD']
