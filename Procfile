@@ -1,0 +1,1 @@
+web: bundle exec shotgun -R config.ru start -p $PORT -e $RACK_ENV
