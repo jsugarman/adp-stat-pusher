@@ -4,7 +4,8 @@ require "awesome_print"
 module Helper
 
   def secrets
-    secrets = YAML.load_file('./.secrets.yml')
+    secrets = YAML.load(ERB.new(File.read('./.secrets.yml')).result)
+
   end
 
   def method_missing(method, *args, &block)
