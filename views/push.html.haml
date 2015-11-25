@@ -1,7 +1,10 @@
 %h2
-  Pushed the following to performance services:
+  Response from performance services
 
-  %p
-    = @params
-  %p
-    = @params.to_json
+%p#pushed_json
+  - @responses.each do |response|
+
+    = response.request.args[:url].split('/').last
+    = " : "
+    = JSON.parse(response)['status'] rescue 'No status found'
+    %br

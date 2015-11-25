@@ -1,0 +1,8 @@
+
+p#pushed_json{
+    background-color: grey;
+    /*margin: 15px 15px;*/
+    border-box: 10px;
+    /*border-color: red;*/
+    border-style: solid red 2px;
+}

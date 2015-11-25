@@ -1,26 +1,40 @@
+@govuk-blue: #005ea5;
+
+body{
+    font-family: arial, sans-serif;
+}
+
 #wrapper{
-    width:66%;
     margin:auto;
 }
- 
+
 #header{
-    background-color:#ade;
+    background-color: black;
+    color: white;
+    padding: 10px 10px;
 }
- 
+
 #header>h1{
-    font-size:200%;
+    font-size:150%;
 }
- 
+
 h2{
-    font-size:130%;
+    font-size:100%;
     font-family:sans-serif;
 }
- 
+
 #content{
-    margin:12px 0;
-    float:left;
+    margin: auto;
+    width: 66%;
 }
- 
+
+#nav {
+    background-color: #005ea5;
+    border-bottom: 1px solid #005ea5;
+    width:66%;
+    margin: auto;
+}
+
 #side_bar{
     margin:12px 0;
     width :30%;
@@ -28,35 +42,35 @@ h2{
     clear:none;
     background-color:#ddd;
 }
- 
+
 h1{
     font-size:150%;
 }
- 
+
 #footer{
     clear:both;
-    background-color:#ade;
+    background-color: #dee0e2;
     font-size:75%;
     font-family:sans-serif;
-    color:#333;
+    color:black;
     border-top:solid 1px #69a;
+    margin: auto;
+    width: 66%;
 }
- 
+
 ol{
     padding-top:20px;
-    background-color:#ade;
     display:block;
 }
- 
+
 li{
     color:white;
     text-align:center;
     display:inline;
     padding:5px 10px 0 10px;
     margin-right:2px;
-    background-color: #69a;
 }
- 
+
 a{
     text-decoration:none;
 }
