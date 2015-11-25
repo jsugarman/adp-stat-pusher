@@ -8,18 +8,19 @@ Defendence Payments application up to the Goverment Performance platform.
 You will need to add a .secrets.yml file for the relevant keys and uuids of the various
 endpoints
 
-you will also need the following environment variables. The key values themselves must be obtained from Performance platforms team. The UUIDs can obtained from Joel Sugarman, in the first instance. The UUIDS were one-off generated using ```SecureRandom.uuid``` to uniquely.
+you will also need the following environment variables. The key values themselves must be obtained from Performance platforms team. The UUIDs can obtained from Joel Sugarman, in the first instance. The UUIDS were one-off generated using ```SecureRandom.uuid```. The basic authentication details can be set as preferred.
 
 ```
+export ADP_STAT_PUSHER_USERNAME=''
+export ADP_STAT_PUSHER_PASSWORD=''
 export TRANSACTIONS_BY_CHANNEL_KEY=''
 export COMPLETION_RATE_KEY=''
 export PAPER_COUNT_UUID=''
 export DIGITAL_COUNT_UUID=''
 export COMPLETE_COUNT_UUID=''
 export START_COUNT_UUID=''
-
 ```
 
 # Usage
 
-Enter the manually gather statistics
+Enter the manually gathered statistics into the appropriate fields and hit send. You will be directed to a page displaying a summary of the response from Performance platforms.
