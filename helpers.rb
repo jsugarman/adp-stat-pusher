@@ -1,6 +1,6 @@
 require 'yaml'
 
-module Helper
+module Helpers
 
   def secrets
     secrets = YAML.load(ERB.new(File.read('./.secrets.yml')).result)

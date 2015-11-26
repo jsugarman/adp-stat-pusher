@@ -3,7 +3,7 @@ require_relative './helpers.rb'
 
 class PerformanceDataset
 
-  include Helper
+  include Helpers
 
   # TODO: dry out these constants
   SERVICE_NAME             = "advocate-defence-payments-agfs"

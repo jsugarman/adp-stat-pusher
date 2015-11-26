@@ -19,7 +19,7 @@ Tilt.register Tilt::HamlTemplate, 'html.haml'
 
 class AdpStatPusher < Sinatra::Application
 
-  include Helper
+  include Helpers
 
   SERVICE_NAME             = "advocate-defence-payments-agfs"
   TRANSACTIONS_BY_CHANNEL  = 'transactions-by-channel'

@@ -43,9 +43,15 @@ url: http://localhost:9393/
 
 Login when prompted and enter the manually gathered statistics into the appropriate fields and hit send. You will be directed to a page displaying a summary of the response from Performance platforms.
 
-Still need to identify the sandbox in which the pushed stats can be viewed. Maybe here
-https://www.gov.uk/performance/x-advocate-defence-payments
+Date passed can currently be viewed as JSON using the URL(s) below:
 
+```
+https://www.performance.service.gov.uk/data/advocate-defence-payments-agfs/<endpoint>
+
+e.g.
+  - https://www.performance.service.gov.uk/data/advocate-defence-payments-agfs/transactions-by-channel
+  - https://www.performance.service.gov.uk/data/advocate-defence-payments-agfs/transactions-by-channel
+```
 
 ### TODO
 

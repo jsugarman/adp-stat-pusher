@@ -20,4 +20,7 @@ end
 group :test do
   gem 'rack-test', require: false
   gem 'rspec', '~> 3.4'
+  gem 'capybara'
+  gem 'webmock'
+  gem 'timecop'
 end
