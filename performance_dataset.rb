@@ -1,3 +1,4 @@
+require 'base64'
 require_relative './helpers.rb'
 
 class PerformanceDataset

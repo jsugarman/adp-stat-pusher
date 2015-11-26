@@ -3,7 +3,7 @@ require 'yaml'
 module Helper
 
   def secrets
-    secrets = YAML.load(ERB.new(File.read('./.secrets.yml')).result)  
+    secrets = YAML.load(ERB.new(File.read('./.secrets.yml')).result)
   end
 
   def method_missing(method, *args, &block)

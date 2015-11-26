@@ -50,6 +50,7 @@ https://www.gov.uk/performance/x-advocate-defence-payments
 ### TODO
 
   - improve reporting back of response
+  - add initilizer to load secrets
   - add rspec/test suite
   - add base64 encoding of api key (not currently raise an error from PP endpoints)
   - identify where stats can be viewed on platforms

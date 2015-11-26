@@ -1,17 +1,20 @@
 %h2
   Response from performance services
 
-%p#pushed_json
-  - @responses.each do |response|
-    %div
-      = response.request.args[:url].split('/').last
-      - status = JSON.parse(response)['status'] || 'error'
-      - if status == 'error'
-        %p{style: 'text-indent: 10px;'}
-          error(s):
-          = JSON.parse(response)['message']
-          = JSON.parse(response)['messages']
-      - else
-        = ':'
-        = status
+%p
+  - if @responses.empty?
+    = 'No responses'
+  - else
+    - @responses.each do |response|
+      %div
+        = response.request.args[:url].split('/').last
+        - status = JSON.parse(response)['status'] || 'error'
+        - if status == 'error'
+          %p{style: 'text-indent: 10px;'}
+            error(s):
+            = JSON.parse(response)['message']
+            = JSON.parse(response)['messages']
+        - else
+          = ':'
+          = status
     
