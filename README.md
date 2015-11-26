@@ -52,7 +52,7 @@ https://www.gov.uk/performance/x-advocate-defence-payments
   - improve reporting back of response
   - add initilizer to load secrets
   - add rspec/test suite
-  - add base64 encoding of api key (not currently raise an error from PP endpoints)
+  - add base64 encoding of api key (currently raises an error from PP endpoints)
   - identify where stats can be viewed on platforms
   - deployment: on MoJ platforms
   - frontend: scss/sass and moj internal template application

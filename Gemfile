@@ -19,5 +19,5 @@ end
 
 group :test do
   gem 'rack-test', require: false
-  gem 'rspec'
+  gem 'rspec', '~> 3.4'
 end
