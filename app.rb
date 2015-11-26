@@ -51,12 +51,12 @@ class AdpStatPusher < Sinatra::Application
   def responses
     @responses
   end
-
-private
-
+  
   def performance_service_url
     "https://www.performance.service.gov.uk/data/#{SERVICE_NAME}"
   end
+
+private
 
   def herb(template, options={}, locals={})
     render "html.erb", template, options, locals
@@ -103,8 +103,7 @@ private
     end
 
   rescue RestClient::ExceptionWithResponse => err
-    responses << err.response
-    ap "error response: #{err.response}"
+    @responses << err.response
 
   end
 
