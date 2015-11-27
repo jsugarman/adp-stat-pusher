@@ -7,7 +7,6 @@ require 'json'
 require_relative './performance_dataset.rb'
 require_relative './helpers.rb'
 
-# require 'byebug'
 require "awesome_print"
 
 use Rack::Auth::Basic, 'Restricted Area' do |username, password|
@@ -38,7 +37,7 @@ class AdpStatPusher < Sinatra::Application
     params.each do |k,v|
       next if v.empty?
       pd = build_performance_dataset(k,v)
-      response = post_to_endpoint(pd.resource, pd.payload)
+      response = create_dataset(pd.resource, pd.payload)
     end
 
     htaml :push
@@ -89,12 +88,14 @@ private
     __send__("#{resource.gsub(/[\-]+/,'_')}_key")
   end
 
-  def post_to_endpoint(resource, payload)
-
-    url = [performance_service_url, resource].join('/')
+  def headers_for(resource)
     headers = { :content_type => :json, :accept => :json, :Authorization => "Bearer #{api_key_for(resource)}" }
+  end
+
+  def create_dataset(resource, payload)
+    url = [performance_service_url, resource].join('/')
     endpoint = RestClient::Resource.new(url, :verify_ssl => false )
-    endpoint.post(payload, headers) do |response, request, result|
+    endpoint.post(payload, headers_for(resource)) do |response, request, result|
       @responses << response
     end
 

@@ -7,7 +7,7 @@ module Helpers
   COMPLETION_RATE          = 'completion-rate'
 
   def secrets
-    secrets = YAML.load(ERB.new(File.read('./.secrets.yml')).result)
+    YAML.load(ERB.new(File.read('./config/config.yml')).result)
   end
 
   def method_missing(method, *args, &block)
