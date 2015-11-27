@@ -12,17 +12,13 @@ cd <to-desired-parent-folder>
 git clone <name-of-this-repo>
 ```
 
-You will also need the following environment variables in your local environment. The API key values themselves must be obtained from Performance platforms team. The UUIDs can obtained from Joel Sugarman, in the first instance. The UUIDS were one-off generated using ```SecureRandom.uuid```. The basic authentication details can be set as preferred.
+You will also need the following environment variables in your local environment. The API key values themselves must be obtained from Performance platforms team. The basic authentication details can be set as preferred.
 
 ```
 export ADP_STAT_PUSHER_USERNAME=''
 export ADP_STAT_PUSHER_PASSWORD=''
 export TRANSACTIONS_BY_CHANNEL_KEY=''
 export COMPLETION_RATE_KEY=''
-export PAPER_COUNT_UUID=''
-export DIGITAL_COUNT_UUID=''
-export COMPLETE_COUNT_UUID=''
-export START_COUNT_UUID=''
 ```
 ### Run locally
 
@@ -47,18 +43,17 @@ Date passed can currently be viewed as JSON using the URL(s) below:
 
 ```
 https://www.performance.service.gov.uk/data/advocate-defence-payments-agfs/<endpoint>
-
-e.g.
-  - https://www.performance.service.gov.uk/data/advocate-defence-payments-agfs/transactions-by-channel
-  - https://www.performance.service.gov.uk/data/advocate-defence-payments-agfs/transactions-by-channel
 ```
+
+e.g. currently:
+
+  https://www.performance.service.gov.uk/data/advocate-defence-payments-agfs/transactions-by-channel
+
+  https://www.performance.service.gov.uk/data/advocate-defence-payments-agfs/completion-rate
 
 ### TODO
 
-  - improve reporting back of response
   - add initilizer to load secrets
   - add rspec/test suite
-  - add base64 encoding of api key (currently raises an error from PP endpoints)
-  - identify where stats can be viewed on platforms
-  - deployment: on MoJ platforms
+  - deployment: on MoJ platforms - tticket in SPOC trello board
   - frontend: scss/sass and moj internal template application
