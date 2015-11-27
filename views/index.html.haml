@@ -1,6 +1,16 @@
 
 %form{:action => "/push", :method => "post"}
 
+  %h2 Period covered
+
+  %label
+    For
+    %select{:name => "week"}
+      %option{:value => "0"} This week
+      %option{:value => "1", selected: "selected"} Last week
+      %option{:value => "2"} 2 weeks ago
+      %option{:value => "3"} 3 weeks ago
+
   %h2 Transaction by channel (per week)
 
   %p Paper
@@ -13,7 +23,7 @@
     Count
     %input#post_digital_count{:name => "digital_count", :type => "number"}/
 
-  %h2 Completion rate (per day)
+  %h2 Completion rate (per week)
 
   %p Completed
   %label
@@ -26,4 +36,4 @@
     %input#post_start_count{:name => "start_count", :type => "number"}/
 
   %p
-    %input.button-secondary{:type => "submit", :value => "Send to performance platform"}/
+    %input.button-secondary{:type => "submit", :value => "Send to performance platform"}

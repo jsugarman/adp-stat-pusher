@@ -27,7 +27,6 @@ end
 
 def sign_in(username, password)
   # request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("#{username}:#{password}")
-   # byebug
   basic_authorize username, password
 end
 

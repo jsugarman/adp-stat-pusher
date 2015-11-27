@@ -20,9 +20,6 @@ class AdpStatPusher < Sinatra::Application
 
   include Helpers
 
-  TBC_CHANNELS = %w( paper digital )
-  CR_STAGES    = %w( complete start )
-
   get '/' do
     htaml :index, :layout => :layout
   end
@@ -33,10 +30,11 @@ class AdpStatPusher < Sinatra::Application
 
   post '/push' do
     @responses = []
-
-    params.each do |k,v|
-      next if v.empty?
-      pd = build_performance_dataset(k,v)
+    week = params['week']
+    params.delete('week')
+    params.each do |dimension, count|
+      next if count.empty?
+      pd = build_performance_dataset(dimension,count,week)
       response = create_dataset(pd.resource, pd.payload)
     end
 
@@ -45,10 +43,6 @@ class AdpStatPusher < Sinatra::Application
 
   def responses
     @responses
-  end
-  
-  def performance_service_url
-    "https://www.performance.service.gov.uk/data/#{SERVICE_NAME}"
   end
 
 private
@@ -61,7 +55,7 @@ private
     render "html.haml", template, options, locals
   end
 
-  def optional_args(stat_type)
+  def optional_args_for(stat_type)
 
     case
       when TBC_CHANNELS.include?(stat_type)
@@ -77,11 +71,10 @@ private
     return resource, option
   end
 
-  def build_performance_dataset(key, value)
-    stat_type = key.to_s.split('_').first
-    count = value.to_i
-    resource, option = optional_args(stat_type)
-    pd = PerformanceDataset.new(resource, { option.to_sym => stat_type, :count => count })
+  def build_performance_dataset(dimension, count, week)
+    stat_type = dimension.to_s.split('_').first
+    resource, option = optional_args_for(stat_type)
+    pd = PerformanceDataset.new(resource, { option.to_sym => stat_type, :count => count.to_i, week:  week })
   end
 
   def api_key_for(resource)
@@ -95,13 +88,12 @@ private
   def create_dataset(resource, payload)
     url = [performance_service_url, resource].join('/')
     endpoint = RestClient::Resource.new(url, :verify_ssl => false )
+
     endpoint.post(payload, headers_for(resource)) do |response, request, result|
       @responses << response
     end
-
   rescue RestClient::ExceptionWithResponse => err
     @responses << err.response
-
   end
 
 end

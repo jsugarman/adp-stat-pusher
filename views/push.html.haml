@@ -17,7 +17,7 @@
           Link
     %tbody
     - @responses.each do |response|
-      - endpoint = response.request.args[:url].split('/').last rescue 'Enpointnot found'
+      - endpoint = response.request.args[:url].split('/').last rescue 'Endpoint not found'
       %tr
         %td
           = endpoint

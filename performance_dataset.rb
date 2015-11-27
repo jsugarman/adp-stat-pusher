@@ -20,9 +20,13 @@ class PerformanceDataset
 
 private
 
-  def build_payload_from_template(name, options={})
+  def timestamp_for_endpoint(weeks_ago)
+    date = Date.today - weeks_ago*7
+    date.monday_of_week.strftime("%FT%T%:z")
+  end
 
-    time_now = Time.now.utc.strftime("%FT%T%:z")
+  def build_payload_from_template(name, options={})
+    timestamp = timestamp_for_endpoint(options[:week].to_i)
 
     case name
       when TRANSACTIONS_BY_CHANNEL
@@ -30,22 +34,23 @@ private
         t = transactions_by_channel_template
         t[:count]   = options[:count].to_i
         t[:channel] = options[:channel]
-        t[:_id]     = create_id(time_now, t[:period], options[:channel])
+        t[:_id]     = create_id(timestamp, t[:period], options[:channel])
 
       when COMPLETION_RATE
         @resource = COMPLETION_RATE
         t = completion_rate_template
         t[:count] = options[:count].to_i
         t[:stage] = options[:stage]
-        t[:_id]   = create_id(time_now, t[:timeSpan], options[:stage])
+        t[:_id]   = create_id(timestamp, t[:timeSpan], options[:stage])
 
       else
         raise ArgumentError 'Invalid dataset name specified'
     end
 
-    t[:_timestamp] = time_now
+    t[:_timestamp] = timestamp
     t.to_json
-end
+  end
+
 
    # NOTE: the id must be a utf8 encoded then base64 encoded unique identifier
   #
