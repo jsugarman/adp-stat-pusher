@@ -5,11 +5,6 @@ class PerformanceDataset
 
   include Helpers
 
-  # TODO: dry out these constants
-  SERVICE_NAME             = "advocate-defence-payments-agfs"
-  TRANSACTIONS_BY_CHANNEL  = 'transactions-by-channel'
-  COMPLETION_RATE          = 'completion-rate'
-
   def initialize(resource, options={} )
     @resource = resource
     @payload = build_payload_from_template(resource, options)
@@ -55,16 +50,15 @@ end
    # NOTE: the id must be a utf8 encoded then base64 encoded unique identifier
   #
   # The base value of the id is typically a concatenated string of
-  # _timestamp, period and dimensions.
+  # _timestamp, period and dimension.
   # e.g. _timestamp value, timeSpan or period value, channel or stage
   #  => for transactions by channel this would be: _timestamp + 'week' + 'digital||paper'
   #  => for completion rate this would be: _timestamp + 'week' + 'complete||start'
-  # It is used by the PP to identify the record and can
+  # It is used by the Performance platforms to identify the record and can
   # be used to update a record if we submit incorrent values
-  # identifier.
   #
   def create_id(timestamp, period, dimension)
-    value  = timestamp+period+dimension
+    value = timestamp+period+dimension
     encode_id(value)
   end
 

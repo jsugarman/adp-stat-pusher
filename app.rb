@@ -21,10 +21,6 @@ class AdpStatPusher < Sinatra::Application
 
   include Helpers
 
-  SERVICE_NAME             = "advocate-defence-payments-agfs"
-  TRANSACTIONS_BY_CHANNEL  = 'transactions-by-channel'
-  COMPLETION_RATE          = 'completion-rate'
-
   TBC_CHANNELS = %w( paper digital )
   CR_STAGES    = %w( complete start )
 
