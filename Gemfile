@@ -8,13 +8,10 @@ gem 'rest-client', '~> 1.8'
 gem 'pry', '~> 0.10.3'
 gem 'thin'
 
-group :development, :test do
+group :production, :test do
   gem 'byebug', '~> 8.2'
   gem 'pry-byebug', '~> 3.2'
   gem 'awesome_print'
-end
-
-group :development do
 end
 
 group :test do
