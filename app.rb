@@ -7,6 +7,10 @@ require 'json'
 require_relative './performance_dataset.rb'
 require_relative './helpers.rb'
 
+# configuration
+require_relative 'config/environments/production'
+require_relative 'config/environments/test'
+
 require "awesome_print"
 
 use Rack::Auth::Basic, 'Restricted Area' do |username, password|
@@ -78,7 +82,7 @@ private
   end
 
   def api_key_for(resource)
-    __send__("#{resource.gsub(/[\-]+/,'_')}_key")
+    settings.__send__("#{resource.gsub(/[\-]+/,'_')}_api_key")
   end
 
   def headers_for(resource)

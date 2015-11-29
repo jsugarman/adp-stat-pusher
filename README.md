@@ -53,7 +53,7 @@ e.g. currently:
 
 ### TODO
 
-  - add initilizer to load secrets
+  - add initilizer to load secrets or remove need for loading them (i.e. config_vars)
   - add rspec/test suite
   - deployment: on MoJ platforms - tticket in SPOC trello board
   - frontend: scss/sass and moj internal template application

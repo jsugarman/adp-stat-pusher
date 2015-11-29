@@ -10,20 +10,8 @@ module Helpers
   TBC_CHANNELS = %w( paper digital )
   CR_STAGES    = %w( complete start )
 
-  def secrets
-    YAML.load(ERB.new(File.read('./config/config.yml')).result)
-  end
-
   def performance_service_url
     "https://www.performance.service.gov.uk/data/#{SERVICE_NAME}"
-  end
-
-  def method_missing(method, *args, &block)
-    if method.match(/^[A-Za-z_]+_key$/)
-      secrets['api_key']["#{method.to_s.gsub(/_key/,'')}"]
-    else
-      super
-    end
   end
 
 end

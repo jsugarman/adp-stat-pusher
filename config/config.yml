@@ -1,3 +1,0 @@
-api_key:
-  transactions_by_channel: <%= ENV['TRANSACTIONS_BY_CHANNEL_KEY'] %>
-  completion_rate: <%= ENV['COMPLETION_RATE_KEY'] %>
