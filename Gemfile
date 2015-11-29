@@ -2,16 +2,19 @@ source 'https://rubygems.org'
 
 ruby '2.2.3'
 
+# essential
 gem 'sinatra', require: 'sinatra/base'
 gem 'haml', '~> 4.0', '>= 4.0.7'
 gem 'rest-client', '~> 1.8'
-gem 'pry', '~> 0.10.3'
 gem 'thin'
 
+# debugging
+gem 'awesome_print'
+gem 'byebug', '~> 8.2'
+gem 'pry', '~> 0.10.3'
+gem 'pry-byebug', '~> 3.2'
+
 group :production, :test do
-  gem 'byebug', '~> 8.2'
-  gem 'pry-byebug', '~> 3.2'
-  gem 'awesome_print'
 end
 
 group :test do

@@ -1,22 +1,23 @@
 require_relative './spec_helper.rb'
 
-
 describe 'AdpStatPusher' do
-  include Rack::Test::Methods
 
-  def app
-    AdpStatPusher
-  end
+  context 'authentication' do
+    context 'should require valid authentication' do
 
-  #
-  # TODO spec app
-  #
-  # before (:each) { sign_in 'admin','admin' }
+      it 'should prevent access for invalid credentials' do
+        sign_in 'bad' , 'boy'
+        get '/'
+        expect(last_response).to_not be_ok
+      end
 
-  xit 'should allow access to the home page' do
-    authorize 'admin' , 'admin'
-    get '/'
-    expect(last_response).to be_ok
+      it 'should grant access for valid credentials' do
+        sign_in ENV['ADP_STAT_PUSHER_USERNAME'], ENV['ADP_STAT_PUSHER_PASSWORD']
+        get '/'
+        expect(last_response).to be_ok
+      end
+
+    end
   end
 
 end

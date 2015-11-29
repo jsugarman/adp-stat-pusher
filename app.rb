@@ -3,15 +3,17 @@ require 'sinatra'
 require 'haml'
 require 'rest-client'
 require 'json'
+require "awesome_print"
 
 require_relative './performance_dataset.rb'
 require_relative './helpers.rb'
 
 # configuration
+set :root, File.dirname(__FILE__)
+set :public_folder, Proc.new { File.join(root, "assets") }
+set :views, Proc.new { File.join(root, "views") }
 require_relative 'config/environments/production'
 require_relative 'config/environments/test'
-
-require "awesome_print"
 
 use Rack::Auth::Basic, 'Restricted Area' do |username, password|
   username == ENV['ADP_STAT_PUSHER_USERNAME'] and password == ENV['ADP_STAT_PUSHER_PASSWORD']
