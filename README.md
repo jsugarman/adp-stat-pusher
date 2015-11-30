@@ -39,7 +39,7 @@ url: http://localhost:9393/
 
 Login when prompted and enter the manually gathered statistics into the appropriate fields and hit send. You will be directed to a page displaying a summary of the response from Performance platforms.
 
-Date passed can currently be viewed as JSON using the URL(s) below:
+Data passed can currently be viewed as JSON using the URL(s) below:
 
 ```
 https://www.performance.service.gov.uk/data/advocate-defence-payments-agfs/<endpoint>
@@ -53,6 +53,8 @@ e.g. currently:
 
 ### TODO
 
-  - add rspec/test suite
-  - deployment: on MoJ platforms - tticket in SPOC trello board
+  - extend rspec/test suite
+  - deployment: on MoJ platforms - ticket in SPOC trello board https://trello.com/c/5U3ZEa9m
   - frontend: scss/sass and moj internal template application
+  - pre-populate Digital, Complete and Start statistics with those from ADP app
+  - mailer to confirm send mail and confirm when data has been set
