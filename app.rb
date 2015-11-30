@@ -36,6 +36,8 @@ class AdpStatPusher < Sinatra::Application
 
   post '/push' do
     @responses = []
+
+
     week = params['week']
     params.delete('week')
     params.each do |dimension, count|

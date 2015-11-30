@@ -40,7 +40,7 @@ describe 'AdpStatPusher' do
     context 'with valid params' do
       %w( paper digital complete start ).each do |dimension|
         it "should successfully post data to #{dimension} endpoint" do
-          post '/push', { dimension.to_sym => '102', week: '1' }
+          post '/push', { "#{dimension}_count".to_sym => '102', week: '1' }
           expect(last_response).to be_ok
           expect(last_response.body).to have_content(dimension)
           expect(last_response.body).to have_content('ok')
