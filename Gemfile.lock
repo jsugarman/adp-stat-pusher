@@ -86,7 +86,7 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   byebug (~> 8.2)
-  capybara
+  capybara (~> 2.5)
   haml (~> 4.0, >= 4.0.7)
   pry (~> 0.10.3)
   pry-byebug (~> 3.2)
