@@ -41,7 +41,7 @@ private
         t = completion_rate_template
         t[:count] = options[:count].to_i
         t[:stage] = options[:stage]
-        t[:_id]   = create_id(timestamp, t[:timeSpan], options[:stage])
+        t[:_id]   = create_id(timestamp, t[:period], options[:stage])
 
       else
         raise ArgumentError 'Invalid dataset name specified'
@@ -56,7 +56,7 @@ private
   #
   # The base value of the id is typically a concatenated string of
   # _timestamp, period and dimension.
-  # e.g. _timestamp value, timeSpan or period value, channel or stage
+  # e.g. _timestamp value, period value, channel or stage
   #  => for transactions by channel this would be: _timestamp + 'week' + 'digital||paper'
   #  => for completion rate this would be: _timestamp + 'week' + 'complete||start'
   # It is used by the Performance platforms to identify the record and can
@@ -88,7 +88,7 @@ private
       count: nil,
       dataType: "journey-by-goal",
       stage: nil,
-      timeSpan: "week"
+      period: "week"
     }
   end
 
