@@ -4,7 +4,7 @@ ruby '2.2.3'
 
 # essential
 gem 'sinatra', require: 'sinatra/base'
-gem 'haml', '~> 4.0', '>= 4.0.7'
+gem 'haml', '~> 5.0'
 gem 'rest-client', '~> 1.8'
 gem 'thin'
 
