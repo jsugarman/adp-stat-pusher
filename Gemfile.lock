@@ -1,7 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.3.8)
+    addressable (2.8.1)
+      public_suffix (>= 2.0.2, < 6.0)
     awesome_print (1.6.1)
     byebug (8.2.0)
     capybara (2.5.0)
@@ -36,6 +37,7 @@ GEM
     pry-byebug (3.3.0)
       byebug (~> 8.0)
       pry (~> 0.10)
+    public_suffix (3.1.1)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
